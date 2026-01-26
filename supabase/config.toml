@@ -1,0 +1,4 @@
+project_id = "mahpndawsuzqizhoincr"
+
+[functions.museum-guide]
+verify_jwt = false
