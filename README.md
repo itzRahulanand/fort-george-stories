@@ -1,73 +1,63 @@
-# Welcome to your Lovable project
+# Fort St. George Museum - AI Guide Project 🏰
 
-## Project info
+An interactive AI-powered guide for exploring the historic Fort St. George Museum in Chennai, India.
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+## 📖 About
 
-## How can I edit this code?
+Fort St. George Museum is housed in India's first British fortress, established in 1644. This project provides an intelligent, conversational guide that helps visitors and history enthusiasts explore the museum's rich heritage through engaging storytelling and historical context.
 
-There are several ways of editing your application.
+## 🎯 Features
 
-**Use Lovable**
+- **Interactive Historical Guide**: Conversational AI that answers questions about the fort and museum
+- **Rich Historical Context**: Detailed information about 17th-century colonial India
+- **Cultural Sensitivity**: Balanced perspective on colonial history and Indian heritage
+- **Visitor Information**: Practical details about timings, tickets, and location
+- **Storytelling Approach**: Brings artifacts and history to life through vivid narratives
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
+## 🏛️ What You'll Learn About
 
-Changes made via Lovable will be committed automatically to this repo.
+- **The Fort**: Built in 1644 by the British East India Company
+- **St. Mary's Church**: The oldest Anglican church in India
+- **Museum Collections**: 
+  - Vintage prints and paintings
+  - Historical coins and currency
+  - Military weapons and uniforms
+  - Manuscripts and documents
+  - Colonial-era artifacts
 
-**Use your preferred IDE**
+- **Historical Figures**: 
+  - Elihu Yale (later founder of Yale University)
+  - Robert Clive
+  - British administrators and governors
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+## 📍 Museum Information
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+**Location:**
+- Rajaji Road, Fort St George
+- Near Legislature and Secretariat
+- Chennai, Tamil Nadu 600009, India
 
-Follow these steps:
+**Timings:**
+- Opens: 9:00 AM Tuesday-Sunday
+- Closed: Mondays
+- Note: Hours may vary on public holidays
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+**Admission:**
+- Entry Fee: ₹250 (approx.)
+- Tickets available online and at venue
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+**Contact:**
+- Phone: 044 2567 1127
+- [Official Website](https://chennaimuseum.tn.gov.in)
 
-# Step 3: Install the necessary dependencies.
-npm i
+## 🚀 How to Use This Guide
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
+### Basic Interaction
+Simply ask questions about:
+- Historical events and dates
+- Specific artifacts or collections
+- Architectural features
+- Historical figures
+- Visiting tips and recommendations
 
-**Edit a file directly in GitHub**
-
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
-
-**Use GitHub Codespaces**
-
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
-
-## What technologies are used for this project?
-
-This project is built with:
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+### Example Questions
