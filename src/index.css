@@ -176,11 +176,15 @@
   }
 
   .chat-bubble-user {
-    @apply bg-primary text-primary-foreground rounded-2xl rounded-br-md px-4 py-3;
+    @apply bg-primary/90 text-primary-foreground rounded-2xl rounded-br-md px-4 py-3 backdrop-blur-md shadow-lg shadow-primary/10;
   }
 
   .chat-bubble-assistant {
-    @apply bg-card border border-border rounded-2xl rounded-bl-md px-4 py-3;
+    @apply bg-white/60 dark:bg-white/10 backdrop-blur-xl border border-white/30 dark:border-white/10 rounded-2xl rounded-bl-md px-4 py-3 shadow-lg shadow-black/5;
+  }
+
+  .glass-panel {
+    @apply bg-white/10 dark:bg-black/20 backdrop-blur-xl border border-white/20 dark:border-white/10;
   }
 }
 
