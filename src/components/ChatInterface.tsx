@@ -149,20 +149,20 @@ const ChatInterface = ({ onBack }: ChatInterfaceProps) => {
   };
 
   return (
-    <div className="min-h-screen bg-background flex flex-col">
+    <div className="min-h-screen bg-gradient-to-br from-heritage-brown/5 via-background to-heritage-gold/5 flex flex-col">
       {/* Header */}
-      <header className="border-b border-border bg-card/80 backdrop-blur-sm sticky top-0 z-10">
+      <header className="border-b border-white/10 bg-white/10 dark:bg-black/20 backdrop-blur-xl sticky top-0 z-10 shadow-lg shadow-black/5">
         <div className="max-w-4xl mx-auto px-4 py-4 flex items-center gap-4">
           <Button
             variant="ghost"
             size="icon"
             onClick={onBack}
-            className="text-muted-foreground hover:text-foreground"
+            className="text-muted-foreground hover:text-foreground hover:bg-white/20"
           >
             <ArrowLeft className="w-5 h-5" />
           </Button>
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-full gold-gradient flex items-center justify-center text-xl">
+            <div className="w-10 h-10 rounded-full gold-gradient flex items-center justify-center text-xl shadow-lg">
               🏰
             </div>
             <div>
@@ -200,7 +200,7 @@ const ChatInterface = ({ onBack }: ChatInterfaceProps) => {
                 <button
                   key={question}
                   onClick={() => handleSuggestedQuestion(question)}
-                  className="px-4 py-2 text-sm bg-card border border-border rounded-full hover:bg-muted transition-colors text-foreground"
+                  className="px-4 py-2 text-sm bg-white/10 dark:bg-white/5 backdrop-blur-md border border-white/20 rounded-full hover:bg-white/20 dark:hover:bg-white/10 transition-all text-foreground shadow-sm"
                 >
                   {question}
                 </button>
@@ -211,7 +211,7 @@ const ChatInterface = ({ onBack }: ChatInterfaceProps) => {
       )}
 
       {/* Input */}
-      <div className="border-t border-border bg-card/80 backdrop-blur-sm p-4">
+      <div className="border-t border-white/10 bg-white/10 dark:bg-black/20 backdrop-blur-xl p-4 shadow-[0_-4px_30px_rgba(0,0,0,0.1)]">
         <div className="max-w-4xl mx-auto flex gap-3">
           <Textarea
             ref={textareaRef}
@@ -219,13 +219,13 @@ const ChatInterface = ({ onBack }: ChatInterfaceProps) => {
             onChange={(e) => setInputValue(e.target.value)}
             onKeyDown={handleKeyDown}
             placeholder="Ask about the fort's history, artifacts, or stories..."
-            className="min-h-[52px] max-h-32 resize-none bg-background border-border focus-visible:ring-heritage-gold"
+            className="min-h-[52px] max-h-32 resize-none bg-white/20 dark:bg-black/20 backdrop-blur-md border-white/20 focus-visible:ring-heritage-gold focus-visible:border-heritage-gold/50"
             disabled={isLoading}
           />
           <Button
             onClick={handleSend}
             disabled={!inputValue.trim() || isLoading}
-            className="gold-gradient text-heritage-brown hover:opacity-90 px-6 self-end"
+            className="gold-gradient text-heritage-brown hover:opacity-90 px-6 self-end shadow-lg"
           >
             {isLoading ? (
               <Loader2 className="w-5 h-5 animate-spin" />

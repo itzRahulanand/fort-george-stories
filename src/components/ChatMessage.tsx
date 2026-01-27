@@ -20,8 +20,8 @@ const ChatMessage = ({ role, content, isLatest }: ChatMessageProps) => {
       {/* Avatar */}
       <div
         className={cn(
-          "w-9 h-9 rounded-full flex-shrink-0 flex items-center justify-center text-lg",
-          isUser ? "bg-primary text-primary-foreground" : "gold-gradient"
+          "w-9 h-9 rounded-full flex-shrink-0 flex items-center justify-center text-lg shadow-lg",
+          isUser ? "bg-primary/90 backdrop-blur-md text-primary-foreground" : "gold-gradient"
         )}
       >
         {isUser ? "👤" : "🏰"}
