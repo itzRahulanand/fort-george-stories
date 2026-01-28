@@ -175,12 +175,13 @@
     background-blend-mode: soft-light;
   }
 
+  /* WhatsApp-style chat bubbles */
   .chat-bubble-user {
-    @apply bg-primary/90 text-primary-foreground rounded-2xl rounded-br-md px-4 py-3 backdrop-blur-md shadow-lg shadow-primary/10;
+    @apply bg-[#005c4b] text-white rounded-xl rounded-br-sm px-4 py-2.5 shadow-md;
   }
 
   .chat-bubble-assistant {
-    @apply bg-white/60 dark:bg-white/10 backdrop-blur-xl border border-white/30 dark:border-white/10 rounded-2xl rounded-bl-md px-4 py-3 shadow-lg shadow-black/5;
+    @apply bg-[#1f2c34] dark:bg-[#202c33] text-white rounded-xl rounded-bl-sm px-4 py-2.5 shadow-md;
   }
 
   .glass-panel {

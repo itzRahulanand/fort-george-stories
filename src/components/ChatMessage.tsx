@@ -49,40 +49,40 @@ const ChatMessage = ({ role, content, isLatest }: ChatMessageProps) => {
         )}
       >
         {isUser ? (
-          <p className="font-sans text-sm md:text-base whitespace-pre-wrap">{content}</p>
+          <p className="font-sans text-sm md:text-base whitespace-pre-wrap text-white">{content}</p>
         ) : (
-          <div className="prose prose-sm md:prose-base prose-stone dark:prose-invert max-w-none">
+          <div className="prose prose-sm md:prose-base max-w-none prose-invert">
             <ReactMarkdown
               components={{
                 p: ({ children }) => (
-                  <p className="mb-3 last:mb-0 font-body text-base leading-relaxed">{children}</p>
+                  <p className="mb-3 last:mb-0 font-body text-base leading-relaxed text-white">{children}</p>
                 ),
                 strong: ({ children }) => (
-                  <strong className="font-semibold text-heritage-burgundy dark:text-heritage-gold">{children}</strong>
+                  <strong className="font-semibold text-emerald-300">{children}</strong>
                 ),
                 em: ({ children }) => (
-                  <em className="italic">{children}</em>
+                  <em className="italic text-white/90">{children}</em>
                 ),
                 ul: ({ children }) => (
-                  <ul className="list-disc list-inside mb-3 space-y-1">{children}</ul>
+                  <ul className="list-disc list-inside mb-3 space-y-1 text-white">{children}</ul>
                 ),
                 ol: ({ children }) => (
-                  <ol className="list-decimal list-inside mb-3 space-y-1">{children}</ol>
+                  <ol className="list-decimal list-inside mb-3 space-y-1 text-white">{children}</ol>
                 ),
                 li: ({ children }) => (
-                  <li className="font-body">{children}</li>
+                  <li className="font-body text-white">{children}</li>
                 ),
                 h1: ({ children }) => (
-                  <h1 className="font-heritage text-xl mb-3 text-heritage-burgundy dark:text-heritage-gold">{children}</h1>
+                  <h1 className="font-heritage text-xl mb-3 text-emerald-300">{children}</h1>
                 ),
                 h2: ({ children }) => (
-                  <h2 className="font-heritage text-lg mb-2 text-heritage-burgundy dark:text-heritage-gold">{children}</h2>
+                  <h2 className="font-heritage text-lg mb-2 text-emerald-300">{children}</h2>
                 ),
                 h3: ({ children }) => (
-                  <h3 className="font-heritage text-base mb-2 text-heritage-burgundy dark:text-heritage-gold">{children}</h3>
+                  <h3 className="font-heritage text-base mb-2 text-emerald-300">{children}</h3>
                 ),
                 blockquote: ({ children }) => (
-                  <blockquote className="border-l-4 border-heritage-gold pl-4 italic my-3 text-muted-foreground">
+                  <blockquote className="border-l-4 border-emerald-400 pl-4 italic my-3 text-white/80">
                     {children}
                   </blockquote>
                 ),

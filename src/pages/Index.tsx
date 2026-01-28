@@ -2,8 +2,9 @@ import { useState } from "react";
 import HeroSection from "@/components/HeroSection";
 import ChatInterface from "@/components/ChatInterface";
 import MuseumMap from "@/components/MuseumMap";
+import VirtualTimeline from "@/components/VirtualTimeline";
 
-type View = "hero" | "chat" | "map";
+type View = "hero" | "chat" | "map" | "timeline";
 
 const Index = () => {
   const [currentView, setCurrentView] = useState<View>("hero");
@@ -37,10 +38,20 @@ const Index = () => {
     );
   }
 
+  if (currentView === "timeline") {
+    return (
+      <VirtualTimeline
+        onBack={handleBackToHero}
+        onAskGuide={handleAskGuide}
+      />
+    );
+  }
+
   return (
     <HeroSection
       onStartChat={() => setCurrentView("chat")}
       onOpenMap={() => setCurrentView("map")}
+      onOpenTimeline={() => setCurrentView("timeline")}
     />
   );
 };
