@@ -5,6 +5,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import ChatMessage from "./ChatMessage";
 import TypingIndicator from "./TypingIndicator";
+import ThemeToggle from "./ThemeToggle";
 import { toast } from "sonner";
 
 type Message = {
@@ -40,11 +41,14 @@ const ChatInterface = ({ onBack, initialQuestion }: ChatInterfaceProps) => {
   const textareaRef = useRef<HTMLTextAreaElement>(null);
 
   useEffect(() => {
-    // Scroll to bottom when new messages arrive
+    // Smooth scroll to bottom when new messages arrive
     if (scrollAreaRef.current) {
       const scrollContainer = scrollAreaRef.current.querySelector('[data-radix-scroll-area-viewport]');
       if (scrollContainer) {
-        scrollContainer.scrollTop = scrollContainer.scrollHeight;
+        scrollContainer.scrollTo({
+          top: scrollContainer.scrollHeight,
+          behavior: 'smooth'
+        });
       }
     }
   }, [messages, isLoading]);
@@ -166,24 +170,27 @@ const ChatInterface = ({ onBack, initialQuestion }: ChatInterfaceProps) => {
     <div className="min-h-screen bg-gradient-to-br from-heritage-brown/5 via-background to-heritage-gold/5 flex flex-col">
       {/* Header */}
       <header className="border-b border-white/10 bg-white/10 dark:bg-black/20 backdrop-blur-xl sticky top-0 z-10 shadow-lg shadow-black/5">
-        <div className="max-w-4xl mx-auto px-4 py-4 flex items-center gap-4">
-          <Button
-            variant="ghost"
-            size="icon"
-            onClick={onBack}
-            className="text-muted-foreground hover:text-foreground hover:bg-white/20"
-          >
-            <ArrowLeft className="w-5 h-5" />
-          </Button>
-          <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-full gold-gradient flex items-center justify-center text-xl shadow-lg">
-              🏰
-            </div>
-            <div>
-              <h1 className="font-heritage text-lg text-foreground">Museum Guide</h1>
-              <p className="text-xs text-muted-foreground">Fort St. George, Chennai</p>
+        <div className="max-w-4xl mx-auto px-4 py-4 flex items-center justify-between">
+          <div className="flex items-center gap-4">
+            <Button
+              variant="ghost"
+              size="icon"
+              onClick={onBack}
+              className="text-muted-foreground hover:text-foreground hover:bg-white/20"
+            >
+              <ArrowLeft className="w-5 h-5" />
+            </Button>
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 rounded-full gold-gradient flex items-center justify-center text-xl shadow-lg">
+                🏰
+              </div>
+              <div>
+                <h1 className="font-heritage text-lg text-foreground">Museum Guide</h1>
+                <p className="text-xs text-muted-foreground">Fort St. George, Chennai</p>
+              </div>
             </div>
           </div>
+          <ThemeToggle />
         </div>
       </header>
 

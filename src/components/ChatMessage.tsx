@@ -1,5 +1,6 @@
 import ReactMarkdown from "react-markdown";
 import { cn } from "@/lib/utils";
+import { motion } from "framer-motion";
 
 interface ChatMessageProps {
   role: "user" | "assistant";
@@ -11,24 +12,37 @@ const ChatMessage = ({ role, content, isLatest }: ChatMessageProps) => {
   const isUser = role === "user";
 
   return (
-    <div
+    <motion.div
+      initial={{ opacity: 0, y: 20, scale: 0.95 }}
+      animate={{ opacity: 1, y: 0, scale: 1 }}
+      transition={{ 
+        duration: 0.3, 
+        ease: "easeOut",
+        scale: { duration: 0.2 }
+      }}
       className={cn(
-        "flex gap-3 animate-fade-in",
+        "flex gap-3",
         isUser ? "flex-row-reverse" : "flex-row"
       )}
     >
       {/* Avatar */}
-      <div
+      <motion.div
+        initial={{ scale: 0 }}
+        animate={{ scale: 1 }}
+        transition={{ delay: 0.1, type: "spring", stiffness: 500, damping: 25 }}
         className={cn(
           "w-9 h-9 rounded-full flex-shrink-0 flex items-center justify-center text-lg shadow-lg",
           isUser ? "bg-primary/90 backdrop-blur-md text-primary-foreground" : "gold-gradient"
         )}
       >
         {isUser ? "👤" : "🏰"}
-      </div>
+      </motion.div>
 
       {/* Message bubble */}
-      <div
+      <motion.div
+        initial={{ opacity: 0, x: isUser ? 20 : -20 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ delay: 0.05, duration: 0.25 }}
         className={cn(
           "max-w-[80%] md:max-w-[70%]",
           isUser ? "chat-bubble-user" : "chat-bubble-assistant"
@@ -78,8 +92,8 @@ const ChatMessage = ({ role, content, isLatest }: ChatMessageProps) => {
             </ReactMarkdown>
           </div>
         )}
-      </div>
-    </div>
+      </motion.div>
+    </motion.div>
   );
 };
 
