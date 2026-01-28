@@ -1,6 +1,7 @@
 import { ArrowLeft, Map } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import ExhibitHotspot, { Exhibit } from "./ExhibitHotspot";
+import ThemeToggle from "./ThemeToggle";
 
 const EXHIBITS: Exhibit[] = [
   {
@@ -93,24 +94,27 @@ const MuseumMap = ({ onBack, onAskGuide }: MuseumMapProps) => {
     <div className="min-h-screen bg-gradient-to-br from-heritage-brown/5 via-background to-heritage-gold/5 flex flex-col">
       {/* Header */}
       <header className="border-b border-white/10 bg-white/10 dark:bg-black/20 backdrop-blur-xl sticky top-0 z-20 shadow-lg shadow-black/5">
-        <div className="max-w-6xl mx-auto px-4 py-4 flex items-center gap-4">
-          <Button
-            variant="ghost"
-            size="icon"
-            onClick={onBack}
-            className="text-muted-foreground hover:text-foreground hover:bg-white/20"
-          >
-            <ArrowLeft className="w-5 h-5" />
-          </Button>
-          <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-full gold-gradient flex items-center justify-center shadow-lg">
-              <Map className="w-5 h-5 text-heritage-brown" />
-            </div>
-            <div>
-              <h1 className="font-heritage text-lg text-foreground">Museum Map</h1>
-              <p className="text-xs text-muted-foreground">Tap on exhibits to explore</p>
+        <div className="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
+          <div className="flex items-center gap-4">
+            <Button
+              variant="ghost"
+              size="icon"
+              onClick={onBack}
+              className="text-muted-foreground hover:text-foreground hover:bg-white/20"
+            >
+              <ArrowLeft className="w-5 h-5" />
+            </Button>
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 rounded-full gold-gradient flex items-center justify-center shadow-lg">
+                <Map className="w-5 h-5 text-heritage-brown" />
+              </div>
+              <div>
+                <h1 className="font-heritage text-lg text-foreground">Museum Map</h1>
+                <p className="text-xs text-muted-foreground">Tap on exhibits to explore</p>
+              </div>
             </div>
           </div>
+          <ThemeToggle />
         </div>
       </header>
 
