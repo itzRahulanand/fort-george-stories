@@ -1,11 +1,12 @@
-import { ChevronDown } from "lucide-react";
+import { ChevronDown, Map } from "lucide-react";
 import fortHero from "@/assets/fort-hero.jpg";
 
 interface HeroSectionProps {
   onStartChat: () => void;
+  onOpenMap: () => void;
 }
 
-const HeroSection = ({ onStartChat }: HeroSectionProps) => {
+const HeroSection = ({ onStartChat, onOpenMap }: HeroSectionProps) => {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background Image */}
@@ -44,14 +45,23 @@ const HeroSection = ({ onStartChat }: HeroSectionProps) => {
           artifacts, and secrets of India's first English fortress.
         </p>
 
-        <button
-          onClick={onStartChat}
-          className="group relative inline-flex items-center gap-3 gold-gradient text-heritage-brown font-sans font-semibold px-8 py-4 rounded-full transition-all duration-300 hover:scale-105 hover:shadow-2xl animate-slide-up"
-          style={{ animationDelay: "0.6s" }}
-        >
-          <span className="text-lg">Begin Your Journey</span>
-          <span className="text-2xl">🏰</span>
-        </button>
+        <div className="flex flex-col sm:flex-row items-center gap-4 animate-slide-up" style={{ animationDelay: "0.6s" }}>
+          <button
+            onClick={onStartChat}
+            className="group relative inline-flex items-center gap-3 gold-gradient text-heritage-brown font-sans font-semibold px-8 py-4 rounded-full transition-all duration-300 hover:scale-105 hover:shadow-2xl"
+          >
+            <span className="text-lg">Begin Your Journey</span>
+            <span className="text-2xl">🏰</span>
+          </button>
+
+          <button
+            onClick={onOpenMap}
+            className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md text-heritage-cream border border-heritage-gold/30 font-sans font-medium px-6 py-4 rounded-full transition-all duration-300 hover:bg-white/20 hover:border-heritage-gold/50"
+          >
+            <Map className="w-5 h-5" />
+            <span>Explore Map</span>
+          </button>
+        </div>
 
         {/* Scroll indicator */}
         <div 

@@ -14,6 +14,7 @@ type Message = {
 
 interface ChatInterfaceProps {
   onBack: () => void;
+  initialQuestion?: string | null;
 }
 
 const CHAT_URL = `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/museum-guide`;
@@ -25,7 +26,7 @@ const SUGGESTED_QUESTIONS = [
   "What artifacts can I see in the museum?",
 ];
 
-const ChatInterface = ({ onBack }: ChatInterfaceProps) => {
+const ChatInterface = ({ onBack, initialQuestion }: ChatInterfaceProps) => {
   const [messages, setMessages] = useState<Message[]>([
     {
       role: "assistant",
@@ -34,6 +35,7 @@ const ChatInterface = ({ onBack }: ChatInterfaceProps) => {
   ]);
   const [inputValue, setInputValue] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  const [hasProcessedInitialQuestion, setHasProcessedInitialQuestion] = useState(false);
   const scrollAreaRef = useRef<HTMLDivElement>(null);
   const textareaRef = useRef<HTMLTextAreaElement>(null);
 
@@ -46,6 +48,14 @@ const ChatInterface = ({ onBack }: ChatInterfaceProps) => {
       }
     }
   }, [messages, isLoading]);
+
+  // Handle initial question from map
+  useEffect(() => {
+    if (initialQuestion && !hasProcessedInitialQuestion) {
+      setHasProcessedInitialQuestion(true);
+      handleSendMessage(initialQuestion);
+    }
+  }, [initialQuestion, hasProcessedInitialQuestion]);
 
   const streamChat = async (userMessages: Message[]) => {
     const response = await fetch(CHAT_URL, {
@@ -117,10 +127,10 @@ const ChatInterface = ({ onBack }: ChatInterfaceProps) => {
     }
   };
 
-  const handleSend = async () => {
-    if (!inputValue.trim() || isLoading) return;
+  const handleSendMessage = async (messageText: string) => {
+    if (!messageText.trim() || isLoading) return;
 
-    const userMessage: Message = { role: "user", content: inputValue.trim() };
+    const userMessage: Message = { role: "user", content: messageText.trim() };
     const newMessages = [...messages, userMessage];
     setMessages(newMessages);
     setInputValue("");
@@ -134,6 +144,10 @@ const ChatInterface = ({ onBack }: ChatInterfaceProps) => {
     } finally {
       setIsLoading(false);
     }
+  };
+
+  const handleSend = async () => {
+    await handleSendMessage(inputValue);
   };
 
   const handleKeyDown = (e: React.KeyboardEvent) => {
