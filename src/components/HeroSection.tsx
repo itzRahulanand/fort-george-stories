@@ -1,12 +1,13 @@
-import { ChevronDown, Map } from "lucide-react";
+import { ChevronDown, Map, Clock } from "lucide-react";
 import fortHero from "@/assets/fort-hero.jpg";
 
 interface HeroSectionProps {
   onStartChat: () => void;
   onOpenMap: () => void;
+  onOpenTimeline: () => void;
 }
 
-const HeroSection = ({ onStartChat, onOpenMap }: HeroSectionProps) => {
+const HeroSection = ({ onStartChat, onOpenMap, onOpenTimeline }: HeroSectionProps) => {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background Image */}
@@ -60,6 +61,14 @@ const HeroSection = ({ onStartChat, onOpenMap }: HeroSectionProps) => {
           >
             <Map className="w-5 h-5" />
             <span>Explore Map</span>
+          </button>
+
+          <button
+            onClick={onOpenTimeline}
+            className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md text-heritage-cream border border-heritage-gold/30 font-sans font-medium px-6 py-4 rounded-full transition-all duration-300 hover:bg-white/20 hover:border-heritage-gold/50"
+          >
+            <Clock className="w-5 h-5" />
+            <span>Timeline</span>
           </button>
         </div>
 
